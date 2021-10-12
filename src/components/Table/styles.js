@@ -5,7 +5,7 @@ export const Body = styled.div`
     text-align: center;
     background-color: #090C10;
     color: white;
-    font-size: larger;
+    font-size: x-large;
     padding: 5vh;
     /* padding: 0; */
     /* border: 1px solid #3AC0FF; */
@@ -25,6 +25,6 @@ export const Th = styled.th`
     
 `;
 export const Td = styled.td`
-    /* border: 1px solid black; */
+    border: 1px solid gray;
     background-color: #1C1C24;
 `;

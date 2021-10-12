@@ -1,37 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { Body, TableBody, Td, Th } from "./styles";
 
-const Table = () =>{
-    const [data,fillData]=useState([
-        {
-            "id": "1",
-            "name": "India",
-            "downloads": "38952"
-        },
-        {
-            "id": "2",
-            "name": "Indonesia",
-            "downloads": "23970"
-        },
-        {
-            "id": "3",
-            "name": "United States",
-            "downloads": "17918"
-        },
-        {
-            "id": "4",
-            "name": "Brazil",
-            "downloads": "17918"
-        }
-    ])
+const Table = (props) =>{
+
+    let index=1;
+    
     const fillTable=()=>{
-        const rows= data.map((entry)=>{
+        const rows= props.data.slice(0,20).map((entry)=>{
             return (
-                <tr>
-                    <Td>{entry.id}</Td>
-                    <Td>{entry.name}</Td>
-                    <Td>{entry.downloads}</Td>
+                <tr key={index}>
+                    <Td>{index++}</Td>
+                    <Td>{entry[0]}</Td>
+                    <Td>{entry[1]}</Td>
                 </tr>
             )
         })
