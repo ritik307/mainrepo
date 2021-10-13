@@ -1,4 +1,4 @@
-import { Body, RightDiv, Banner } from "./styles";
+import { Body, LeftDiv, RightDiv, Banner } from "./styles";
 import Table from "../components/Table/Table";
 
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import axios from "axios";
 const App = () => {
   const [countryData, fillCountry] = useState([]);
   const [total, setTotal] = useState(0);
+  const [osData, fillOS] = useState([]);
   const [deviceData, fillDevice] = useState([]);
 
   const countryUrl = "https://sourceforge.net/projects/projectsakura/files/stats/json?start_date=2020-01-01&end_date=2025-01-01";
@@ -19,6 +20,7 @@ const App = () => {
       .then((res) => {
         setTotal(res.data.total);
         fillCountry(res.data.countries);
+        fillOS(res.data.oses);
       })
       .catch((err) => {
         console.log("Error occured in countries: ");
@@ -44,7 +46,7 @@ const App = () => {
 
   return (
     <Body>
-      {/* <LeftDiv>
+      <LeftDiv>
         <h1>Navbar</h1>
         <h3>Home</h3>
         <h3>Stats</h3>
@@ -52,7 +54,7 @@ const App = () => {
         <h3>Telegram</h3>
         <h3>Donation</h3>
         <h3>Downloads</h3>
-      </LeftDiv> */}
+      </LeftDiv>
       <RightDiv>
         <Banner>Project Sakura got downloaded {total} times.</Banner>
         {/* <GraphDiv>
@@ -61,6 +63,7 @@ const App = () => {
         </GraphDiv> */}
         <Table data={deviceData} type="device" total={total} />
         <Table data={countryData} type="country" total={total} />
+        <Table data={osData} type="os" total={total} />
       </RightDiv>
     </Body>
   );
