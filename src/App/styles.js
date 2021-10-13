@@ -23,13 +23,18 @@ export const LeftDiv = styled.div`
     width: 20vh;
     padding: 2vh;
     text-align: center;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 export const RightDiv = styled.div`
-    
     flex-grow: 1;
     background-color: #090C10;
     padding: 5vh;
     overflow-y: scroll;
+    @media (max-width: 768px) {
+        padding: 1vh;
+    }
 `;
 export const GraphDiv = styled.div`
     display: flex;

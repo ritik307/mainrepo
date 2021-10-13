@@ -6,6 +6,9 @@ export const Body = styled.div`
     color: whitesmoke;
     font-size: larger;
     padding: 5vh;
+    @media (max-width: 768px) {
+        padding: 1vh;
+    }
     /* padding: 0; */
     /* border: 1px solid #3AC0FF; */
     /* border-radius: 50px; */

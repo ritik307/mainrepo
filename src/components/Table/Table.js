@@ -4,7 +4,7 @@ import { Body, TableBody, Td, Th } from "./styles";
 
 const Table = (props) => {
 
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading] = useState(false);
     // const [data,setData] = useState(props.data);
     const [downloads, setDownloads] = useState([]);
 
