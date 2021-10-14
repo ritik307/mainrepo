@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Body, TableBody, Td, Th } from "./styles";
+import { Body, TableContainer, Td, Th } from "./styles";
 
 const Table = (props) => {
 
@@ -89,19 +89,19 @@ const Table = (props) => {
         else {
             if (props.type === "country") {
                 return (
-                    <TableBody>
+                    <TableContainer>
                         <tr>
                             <Th>Serial No.</Th>
                             <Th>Country Name</Th>
                             <Th>Downloads</Th>
                         </tr>
                         {fillCountryTable()}
-                    </TableBody>
+                    </TableContainer>
                 );
             }
             else if (props.type === "device") {
                 return (
-                    <TableBody>
+                    <TableContainer>
                         <tr>
                             <Th>Device Name</Th>
                             <Th>Downloads</Th>
@@ -109,13 +109,16 @@ const Table = (props) => {
                             {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
                         </tr>
-                        {fillDeviceTable()}
-                    </TableBody>
+                        <tbody>
+                            {fillDeviceTable()}    
+                        </tbody>
+                        
+                    </TableContainer>
                 )
             }
             else {
                 return (
-                    <TableBody>
+                    <TableContainer>
                         <tr>
                             <Th>Serial No.</Th>
                             <Th>Device Name</Th>
@@ -123,8 +126,11 @@ const Table = (props) => {
                             {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
                         </tr>
-                        {fillOSTable()}
-                    </TableBody>
+                        <tbody>
+                            {fillOSTable()}
+                        </tbody>
+                        
+                    </TableContainer>
                 )
             }
         }

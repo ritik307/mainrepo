@@ -14,18 +14,15 @@ export const Body = styled.div`
     /* border-radius: 50px; */
 `;
 
-export const TableBody = styled.table`
+export const TableContainer = styled.table`
     border-collapse: collapse;
-    border: 2px solid #3AC0FF;
+    border: 2px solid #64B1F3;
     width: 100%;
 `;
 export const Th = styled.th`
     text-align: center;
-    /* font-weight: 5px; */
-    /* border: 1px solid black; */
-    
-    background-color: #3AC0FF;
-    
+    font-size: x-large;
+    background-color: #64B1F3;
 `;
 export const Td = styled.td`
     border: 1px solid gray;

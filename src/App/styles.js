@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
+    font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: row;
     align-items : stretch;
@@ -10,8 +11,8 @@ export const Body = styled.div`
     height: 100vh;
 `;
 export const Banner = styled.p`
-    border: 1px solid #3AC0FF;
-    background-color: rgba(58,192,225,0.3);
+    border: 1px solid #64B1F3;
+    background-color: rgba(100,177,243,0.3);
     border-radius: 5px;
     padding: 2vh;
     text-align: center;
