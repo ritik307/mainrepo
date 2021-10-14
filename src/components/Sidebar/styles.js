@@ -28,6 +28,7 @@ export const SponsorImage = styled.img`
 `;
 export const Span = styled.h6`
     margin-top:1vh;
+    font-size: larger;
     color: #53c497;
 `;
 export const LinkDiv = styled.div`
@@ -37,6 +38,7 @@ export const LinkDiv = styled.div`
 export const Anchor = styled.a`
     margin: 1vh auto;
     color: whitesmoke;
+    font-size: large;
     text-decoration: none;
     &:hover {
         color: #53c497;

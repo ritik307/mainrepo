@@ -6,8 +6,9 @@ export const Body = styled.div`
     color: whitesmoke;
     font-size: larger;
     padding: 3vh;
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         padding: 1vh;
+        font-size: small;
     }
     /* padding: 0; */
     /* border: 1px solid #3AC0FF; */

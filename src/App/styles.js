@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 export const Body = styled.div`
     font-family: 'Lato', sans-serif;
+`;
+export const Container = styled.div`
+    
     display: flex;
     flex-direction: row;
     align-items : stretch;
-    height: 100%;
+    /* height: 100%; */
     background-color: black;
     color: white;
     height: 100vh;
+    @media (max-width: 900px) {
+        height: 100%;
+    }
 `;
 export const Banner = styled.p`
     /* border: 1px solid #64B1F3; */
@@ -26,7 +32,7 @@ export const LeftDiv = styled.div`
     padding: 2vh;
     text-align: center;
     text-decoration: none;
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display: none;
     }
 `;
@@ -35,8 +41,9 @@ export const RightDiv = styled.div`
     background-color: #090C10;
     padding: 5vh;
     overflow-y: scroll;
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         padding: 1vh;
+        overflow-y: unset;
     }
 `;
 export const GraphDiv = styled.div`
@@ -84,4 +91,9 @@ export const Footer = styled.footer`
     height: fit-content;
     color: white;
     background-color: #121217;
+`;
+export const FooterContainer = styled.div`
+    @media (min-width: 900px) {
+        display: none;
+    }
 `;
