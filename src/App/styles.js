@@ -11,10 +11,11 @@ export const Body = styled.div`
     height: 100vh;
 `;
 export const Banner = styled.p`
-    border: 1px solid #64B1F3;
-    background-color: rgba(100,177,243,0.3);
-    border-radius: 5px;
-    padding: 2vh;
+    /* border: 1px solid #64B1F3; */
+    filter: drop-shadow(0 0 0.25rem #3AC0FF);
+    /* background-color: rgba(100,177,243,0.3); */
+    /* border-radius: 5px; */
+    padding: 1vh;
     text-align: center;
     font-size: 1.5em;
 `;
@@ -24,6 +25,7 @@ export const LeftDiv = styled.div`
     width: 20vh;
     padding: 2vh;
     text-align: center;
+    text-decoration: none;
     @media (max-width: 768px) {
         display: none;
     }

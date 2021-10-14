@@ -1,9 +1,10 @@
-import { Body, LeftDiv, RightDiv, Banner } from "./styles";
-import Table from "../components/Table/Table";
-
 import { useEffect, useState } from "react";
-
 import axios from "axios";
+
+import { Body, LeftDiv, RightDiv, Banner } from "./styles";
+
+import Table from "../components/Table/Table";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const App = () => {
   const [countryData, fillCountry] = useState([]);
@@ -47,13 +48,7 @@ const App = () => {
   return (
     <Body>
       <LeftDiv>
-        <h1>Navbar</h1>
-        <h3>Home</h3>
-        <h3>Stats</h3>
-        <h3>Twitter</h3>
-        <h3>Telegram</h3>
-        <h3>Donation</h3>
-        <h3>Downloads</h3>
+        <Sidebar />
       </LeftDiv>
       <RightDiv>
         <Banner>Project Sakura got downloaded {total} times.</Banner>
