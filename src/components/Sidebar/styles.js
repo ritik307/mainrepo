@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SideDiv = styled.div`
     margin:1vh auto;
     text-align:center;
+    padding: 2vh;
 `;
 export const ImgDiv = styled.div`
 `;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect,useRef, useState } from "react";
 import axios from "axios";
 import { Body, TableContainer, Td, Th } from "./styles";
 import flag from "../../data/countryCode";
@@ -7,9 +7,8 @@ const Table = (props) => {
     const [isLoading] = useState(false);
     // const [data,setData] = useState(props.data);
     const [downloads, setDownloads] = useState([]);
-
     useEffect(() => {
-        //console.log("useMemo",props.data)
+        console.log("useMemo",props.data)
         props.data.forEach((entry) => {
             // console.log("here");
             const url = `https://sourceforge.net/projects/projectsakura/files/${entry.codename}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
@@ -24,7 +23,7 @@ const Table = (props) => {
                     // console.log("Error while fetching device download: ");
                     // console.log(err);
                 })
-
+                
         })
     }, [props.data]);
 
