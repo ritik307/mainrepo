@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Body, TableContainer, Td, Th } from "./styles";
-
+import flag from "../../data/countryCode";
 const Table = (props) => {
 
     const [isLoading] = useState(false);
@@ -11,7 +11,7 @@ const Table = (props) => {
     useEffect(() => {
         //console.log("useMemo",props.data)
         props.data.forEach((entry) => {
-            console.log("here");
+            // console.log("here");
             const url = `https://sourceforge.net/projects/projectsakura/files/${entry.codename}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
             axios.get(url)
                 .then((res) => {
@@ -21,8 +21,8 @@ const Table = (props) => {
                     setDownloads(oldData => [...oldData, deviceTotal]);
                 })
                 .catch((err) => {
-                    console.log("Error while fetching device download: ");
-                    console.log(err);
+                    // console.log("Error while fetching device download: ");
+                    // console.log(err);
                 })
 
         })
@@ -38,7 +38,8 @@ const Table = (props) => {
             const percent = ((deviceTotal * 100) / (props.total)).toFixed(2);
 
             return (
-                <tr key={index++}>
+                <tr key={index}>
+                    <Td>{++index}</Td>
                     <Td>{entry.name}</Td>
                     <Td>{deviceTotal}</Td>
                     <Td>{percent}</Td>
@@ -65,13 +66,15 @@ const Table = (props) => {
 
     //? FILLING COUNTRY DATA 
     const fillCountryTable = () => {
-        let index = 1;
+        let index = 0;
         const rows = props.data.slice(0, 20).map((entry) => {
-
+            const flagSrc= `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
             return (
                 <tr key={index}>
-                    <Td>{index++}</Td>
+                    <Td>{index}</Td>
+                    <Td><img key={index} alt={entry[0]} src={flagSrc}></img></Td>
                     <Td>{entry[0]}</Td>
+                    
                     <Td>{entry[1]}</Td>
                 </tr>
             )
@@ -92,6 +95,7 @@ const Table = (props) => {
                     <TableContainer>
                         <tr>
                             <Th>Serial No.</Th>
+                            <Th>Flag</Th>
                             <Th>Country Name</Th>
                             <Th>Downloads</Th>
                         </tr>
@@ -103,6 +107,7 @@ const Table = (props) => {
                 return (
                     <TableContainer>
                         <tr>
+                            <Th>Serial No.</Th>
                             <Th>Device Name</Th>
                             <Th>Downloads</Th>
                             <Th>Percentage</Th>
