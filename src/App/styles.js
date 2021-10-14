@@ -25,6 +25,14 @@ export const Banner = styled.p`
     text-align: center;
     font-size: 1.5em;
 `;
+export const Heading = styled.p`
+    filter: drop-shadow(0 0 0.25rem #121217);
+    /* padding: 1vh; */
+    text-align: center;
+    margin-bottom: 0%;
+    font-weight: bolder;
+    font-size: 1.5em;
+`;
 export const LeftDiv = styled.div`
     /* height: 100vh; */
     background-color: #121217;
@@ -96,4 +104,6 @@ export const FooterContainer = styled.div`
     @media (min-width: 900px) {
         display: none;
     }
+`;
+export const AdvBanner = styled.div`
 `;
