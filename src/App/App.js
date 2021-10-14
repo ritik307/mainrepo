@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Body, Container, LeftDiv, RightDiv, GraphDiv, LeftGraph, RightGraph, Banner, FooterContainer } from "./styles";
+import { Body, Container, LeftDiv, RightDiv, Banner, FooterContainer, AdvBanner, Heading } from "./styles";
 
 import Table from "../components/Table/Table";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Footer from "../components/Footer/Footer";
+import AdComponent from "../components/Adsense/AdComponent";
 
 const App = () => {
   const [countryData, fillCountry] = useState([]);
@@ -48,25 +49,33 @@ const App = () => {
 
   return (
     <Body>
-    <Container>
-      <LeftDiv>
-        <Sidebar />
-      </LeftDiv>
-      <RightDiv>
-        <Banner>Project Sakura got downloaded <strong>{total}</strong> times.</Banner>
-        {/* <GraphDiv>
+      <Container>
+        <LeftDiv>
+          <Sidebar />
+        </LeftDiv>
+        <RightDiv>
+          <Banner>Project Sakura got downloaded <strong>{total}</strong> times.</Banner>
+          <AdvBanner>
+            <AdComponent />
+          </AdvBanner>
+          {/* <GraphDiv>
           <LeftGraph><h1>left graph section</h1></LeftGraph>
           <RightGraph><h1>Right graph section</h1></RightGraph>
         </GraphDiv> */}
-        <Table data={deviceData} type="device" total={total} />
-        <Table data={countryData} type="country" total={total} />
-        <Table data={osData} type="os" total={total} />
-      </RightDiv>
-      
-    </Container>
-    <FooterContainer>
-      <Footer/>
-    </FooterContainer>
+          <Heading> Supported Device </Heading>
+          <Table data={deviceData} type="device" total={total} />
+          <Heading> Top Countries </Heading>
+          <Table data={countryData} type="country" total={total} />
+          <Heading> OS used to download Sakura </Heading>
+          <Table data={osData} type="os" total={total} />
+          <AdvBanner>
+            <AdComponent />
+          </AdvBanner>
+        </RightDiv>
+      </Container>
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
     </Body>
   );
 };
