@@ -1,4 +1,4 @@
-import { useEffect,useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Body, TableContainer, Td, Th } from "./styles";
 import flag from "../../data/countryCode";
@@ -8,7 +8,7 @@ const Table = (props) => {
     // const [data,setData] = useState(props.data);
     const [downloads, setDownloads] = useState([]);
     useEffect(() => {
-        console.log("useMemo",props.data)
+        // console.log("useMemo",props.data)
         props.data.forEach((entry) => {
             // console.log("here");
             const url = `https://sourceforge.net/projects/projectsakura/files/${entry.codename}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
@@ -23,7 +23,6 @@ const Table = (props) => {
                     // console.log("Error while fetching device download: ");
                     // console.log(err);
                 })
-                
         })
     }, [props.data]);
 
@@ -67,13 +66,13 @@ const Table = (props) => {
     const fillCountryTable = () => {
         let index = 0;
         const rows = props.data.slice(0, 20).map((entry) => {
-            const flagSrc= `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
+            const flagSrc = `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
             return (
                 <tr key={index}>
                     <Td>{index}</Td>
                     <Td><img key={index} alt={entry[0]} src={flagSrc}></img></Td>
                     <Td>{entry[0]}</Td>
-                    
+
                     <Td>{entry[1]}</Td>
                 </tr>
             )
@@ -114,9 +113,9 @@ const Table = (props) => {
                             <Th>Percentage</Th> */}
                         </tr>
                         <tbody>
-                            {fillDeviceTable()}    
+                            {fillDeviceTable()}
                         </tbody>
-                        
+
                     </TableContainer>
                 )
             }
@@ -133,7 +132,7 @@ const Table = (props) => {
                         <tbody>
                             {fillOSTable()}
                         </tbody>
-                        
+
                     </TableContainer>
                 )
             }

@@ -1,6 +1,6 @@
 {
     "homepage": "https://Projectsakura.github.io/stats",
-    "name": "project-sakura-main",
+    "name": "stats",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

@@ -4,7 +4,6 @@ export const Body = styled.div`
     font-family: 'Lato', sans-serif;
 `;
 export const Container = styled.div`
-    
     display: flex;
     flex-direction: row;
     align-items : stretch;
