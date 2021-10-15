@@ -9,11 +9,11 @@ const Table = (props) => {
     const [downloads, setDownloads] = useState([]);
     useEffect(() => {
         // console.log("useMemo",props.data)
-        if(props.type==="device"){
-            for(let idx=0;idx<50;idx++){
+        if (props.type === "device") {
+            for (let idx = 0; idx < 50; idx++) {
                 // console.log("here");
-                if(props.data[idx]){
-                    const deviceCode=props.data[idx].codename;
+                if (props.data[idx]) {
+                    const deviceCode = props.data[idx].codename;
                     const url = `https://sourceforge.net/projects/projectsakura/files/${deviceCode}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
                     // console.log(deviceCode);
                     axios.get(url)
@@ -22,8 +22,8 @@ const Table = (props) => {
                                 codename: deviceCode,
                                 count: res.data.total,
                             };
-                            
-                            setDownloads(oldData=> [...oldData,newData]);
+
+                            setDownloads(oldData => [...oldData, newData]);
                         })
                         .catch((err) => {
                             console.log("Error while fetching device download: ");
@@ -32,6 +32,7 @@ const Table = (props) => {
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.data]);
 
 
@@ -40,16 +41,16 @@ const Table = (props) => {
     const fillDeviceTable = () => {
         let index = 0;
         // console.log(downloads);
-        if(downloads.length){
+        if (downloads.length) {
             const rows = props.data.map((entry) => {
-            
-                const deviceObj = downloads.find((data)=>data.codename===entry.codename);
-                if(deviceObj){
-                    const deviceTotal=deviceObj.count;
+
+                const deviceObj = downloads.find((data) => data.codename === entry.codename);
+                if (deviceObj) {
+                    const deviceTotal = deviceObj.count;
                     //console.log(deviceObj);
                     // console.log(deviceTotal);
                     const percent = ((deviceTotal * 100) / (props.total)).toFixed(2);
-        
+
                     return (
                         <tr key={index}>
                             <Td>{++index}</Td>
@@ -110,13 +111,13 @@ const Table = (props) => {
                 return (
                     <TableContainer>
                         <tbody>
-                        <tr>
-                            <Th>Serial No.</Th>
-                            <Th>Flag</Th>
-                            <Th>Country Name</Th>
-                            <Th>Downloads</Th>
-                        </tr>
-                        {fillCountryTable()}
+                            <tr>
+                                <Th>Serial No.</Th>
+                                <Th>Flag</Th>
+                                <Th>Country Name</Th>
+                                <Th>Downloads</Th>
+                            </tr>
+                            {fillCountryTable()}
                         </tbody>
                     </TableContainer>
                 );
@@ -125,15 +126,15 @@ const Table = (props) => {
                 return (
                     <TableContainer>
                         <tbody>
-                        <tr>
-                            <Th>Serial No.</Th>
-                            <Th>Device Name</Th>
-                            <Th>Downloads</Th>
-                            <Th>Percentage</Th>
-                            {/* <Th>Downloads</Th>
+                            <tr>
+                                <Th>Serial No.</Th>
+                                <Th>Device Name</Th>
+                                <Th>Downloads</Th>
+                                <Th>Percentage</Th>
+                                {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
-                        </tr>
-                        
+                            </tr>
+
                             {fillDeviceTable()}
                         </tbody>
 
@@ -144,14 +145,14 @@ const Table = (props) => {
                 return (
                     <TableContainer>
                         <tbody>
-                        <tr>
-                            <Th>Serial No.</Th>
-                            <Th>Device Name</Th>
-                            <Th>Downloads</Th>
-                            {/* <Th>Downloads</Th>
+                            <tr>
+                                <Th>Serial No.</Th>
+                                <Th>Device Name</Th>
+                                <Th>Downloads</Th>
+                                {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
-                        </tr>
-                        
+                            </tr>
+
                             {fillOSTable()}
                         </tbody>
 
