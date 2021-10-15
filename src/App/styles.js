@@ -37,7 +37,7 @@ export const LeftDiv = styled.div`
     /* height: 100vh; */
     background-color: #121217;
     width: 20vh;
-    padding: 2vh;
+    /* padding: 2vh; */
     text-align: center;
     text-decoration: none;
     @media (max-width: 900px) {
@@ -47,10 +47,12 @@ export const LeftDiv = styled.div`
 export const RightDiv = styled.div`
     flex-grow: 1;
     background-color: #090C10;
-    padding: 5vh;
+    /* padding: 5vh; */
+    height: 100vh;
     overflow-y: scroll;
     @media (max-width: 900px) {
         padding: 1vh;
+        height: 100%;
         overflow-y: unset;
     }
 `;

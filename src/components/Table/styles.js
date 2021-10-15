@@ -5,7 +5,7 @@ export const Body = styled.div`
     background-color: #090C10;
     color: whitesmoke;
     font-size: larger;
-    padding: 3vh;
+    padding: 10vh;
     @media (max-width: 900px) {
         padding: 1vh;
         font-size: small;
@@ -19,6 +19,7 @@ export const TableContainer = styled.table`
     /* border-collapse: collapse; */
     border-collapse: separate;
     border-spacing: 0 10px;
+    
     /* border: 2px solid #64B1F3; */
     /* border-radius: 5px !important; */
     width: 100%;
