@@ -13,6 +13,7 @@ const App = () => {
   const [total, setTotal] = useState(0);
   const [osData, fillOS] = useState([]);
   const [deviceData, fillDevice] = useState([]);
+  // const [downloads,fillDownloads] = useState(new Array(50));
 
   const countryUrl = "https://sourceforge.net/projects/projectsakura/files/stats/json?start_date=2020-01-01&end_date=2025-01-01";
   const deviceUrl = "https://raw.githubusercontent.com/ProjectSakura/OTA/11/devices.json";
