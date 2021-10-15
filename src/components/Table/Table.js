@@ -9,21 +9,29 @@ const Table = (props) => {
     const [downloads, setDownloads] = useState([]);
     useEffect(() => {
         // console.log("useMemo",props.data)
-        props.data.forEach((entry) => {
-            // console.log("here");
-            const url = `https://sourceforge.net/projects/projectsakura/files/${entry.codename}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
-            axios.get(url)
-                .then((res) => {
-                    const deviceTotal = res.data.total;
-                    // console.log("device name: ",entry.name);
-                    // console.log("deviceTotal: ",deviceTotal);
-                    setDownloads(oldData => [...oldData, deviceTotal]);
-                })
-                .catch((err) => {
-                    // console.log("Error while fetching device download: ");
-                    // console.log(err);
-                })
-        })
+        if(props.type==="device"){
+            for(let idx=0;idx<50;idx++){
+                // console.log("here");
+                if(props.data[idx]){
+                    const deviceCode=props.data[idx].codename;
+                    const url = `https://sourceforge.net/projects/projectsakura/files/${deviceCode}/stats/json?start_date=2020-01-01&end_date=2022-01-01`;
+                    // console.log(deviceCode);
+                    axios.get(url)
+                        .then((res) => {
+                            const newData = {
+                                codename: deviceCode,
+                                count: res.data.total,
+                            };
+                            
+                            setDownloads(oldData=> [...oldData,newData]);
+                        })
+                        .catch((err) => {
+                            console.log("Error while fetching device download: ");
+                            console.log(err);
+                        })
+                }
+            }
+        }
     }, [props.data]);
 
 
@@ -31,20 +39,29 @@ const Table = (props) => {
     //? FILLING DEVICE
     const fillDeviceTable = () => {
         let index = 0;
-        const rows = props.data.map((entry) => {
-            const deviceTotal = downloads[index];
-            const percent = ((deviceTotal * 100) / (props.total)).toFixed(2);
-
-            return (
-                <tr key={index}>
-                    <Td>{++index}</Td>
-                    <Td>{entry.name}</Td>
-                    <Td>{deviceTotal}</Td>
-                    <Td>{percent}</Td>
-                </tr>
-            )
-        })
-        return rows;
+        // console.log(downloads);
+        if(downloads.length){
+            const rows = props.data.map((entry) => {
+            
+                const deviceObj = downloads.find((data)=>data.codename===entry.codename);
+                if(deviceObj){
+                    const deviceTotal=deviceObj.count;
+                    //console.log(deviceObj);
+                    // console.log(deviceTotal);
+                    const percent = ((deviceTotal * 100) / (props.total)).toFixed(2);
+        
+                    return (
+                        <tr key={index}>
+                            <Td>{++index}</Td>
+                            <Td>{entry.name}</Td>
+                            <Td>{deviceTotal}</Td>
+                            <Td>{percent}</Td>
+                        </tr>
+                    )
+                }
+            })
+            return rows;
+        }
     }
 
     //? FILLING OS
