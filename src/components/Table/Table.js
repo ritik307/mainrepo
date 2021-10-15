@@ -59,6 +59,7 @@ const Table = (props) => {
                         </tr>
                     )
                 }
+                return null;
             })
             return rows;
         }
@@ -108,6 +109,7 @@ const Table = (props) => {
             if (props.type === "country") {
                 return (
                     <TableContainer>
+                        <tbody>
                         <tr>
                             <Th>Serial No.</Th>
                             <Th>Flag</Th>
@@ -115,12 +117,14 @@ const Table = (props) => {
                             <Th>Downloads</Th>
                         </tr>
                         {fillCountryTable()}
+                        </tbody>
                     </TableContainer>
                 );
             }
             else if (props.type === "device") {
                 return (
                     <TableContainer>
+                        <tbody>
                         <tr>
                             <Th>Serial No.</Th>
                             <Th>Device Name</Th>
@@ -129,7 +133,7 @@ const Table = (props) => {
                             {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
                         </tr>
-                        <tbody>
+                        
                             {fillDeviceTable()}
                         </tbody>
 
@@ -139,6 +143,7 @@ const Table = (props) => {
             else {
                 return (
                     <TableContainer>
+                        <tbody>
                         <tr>
                             <Th>Serial No.</Th>
                             <Th>Device Name</Th>
@@ -146,7 +151,7 @@ const Table = (props) => {
                             {/* <Th>Downloads</Th>
                             <Th>Percentage</Th> */}
                         </tr>
-                        <tbody>
+                        
                             {fillOSTable()}
                         </tbody>
 
