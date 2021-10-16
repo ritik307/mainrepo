@@ -56,6 +56,7 @@ export const RightDiv = styled.div`
     }
 `;
 export const GraphDiv = styled.div`
+    margin-top: 2vh;
     display: flex;
     flex-direction: row;
     padding-bottom: 5vh;
@@ -80,10 +81,7 @@ export const LeftGraph = styled.div`
     margin-left: 1vh;
     height: 50vh;
     @media (max-width: 900px) {
-        width:100%;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 1vh;
+       display: none;
     }
 `;
 
@@ -127,4 +125,5 @@ export const FooterContainer = styled.div`
     }
 `;
 export const AdvBanner = styled.div`
+    text-align: center;
 `;
