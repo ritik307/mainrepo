@@ -60,29 +60,49 @@ export const GraphDiv = styled.div`
     flex-direction: row;
     padding-bottom: 5vh;
     max-width: 100%;
+    @media (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+    }
     /* justify-content: space-between; */
 `;
 
 export const LeftGraph = styled.div`
     flex-grow: 1;
-    border: 1px solid #3AC0FF;
-    background-color: rgba(58,192,225,0.3);
+    border: 1px solid #18191a;
+    filter: drop-shadow(0 0 0.25rem #494a4b);
+    /* border: 1px solid #3AC0FF; */
+    /* background-color: rgba(58,192,225,0.3); */
     border-radius: 5px;
     text-align: center;
-    /* width: 50vh; */
+    width: 30vh;
     margin-right: 1vh;
+    margin-left: 1vh;
     height: 50vh;
+    @media (max-width: 900px) {
+        width:100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1vh;
+    }
 `;
 
 export const RightGraph = styled.div`
     flex-grow: 1;
-    border: 1px solid #3AC0FF;
-    background-color: rgba(58,192,225,0.3);
+    border: 1px solid #0D0E0F;
+    filter: drop-shadow(0 0 0.25rem #494a4b);
     border-radius: 5px;
     text-align:center;
-    /* width: 50vh; */
+    width: 70vh;
     margin-left: 1vh;
+    margin-right: 1vh;
     height: 50vh;
+    @media (max-width: 900px) {
+        width:100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1vh;
+    }
 `;
 
 export const Navbar = styled.nav`
