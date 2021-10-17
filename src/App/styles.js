@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Body = styled.div`
     font-family: 'Lato', sans-serif;
+    background-color: #1c1c24;
 `;
 export const Container = styled.div`
     display: flex;
@@ -73,7 +74,7 @@ export const LeftGraph = styled.div`
     border: 1px solid #18191a;
     filter: drop-shadow(0 0 0.25rem #494a4b);
     /* border: 1px solid #3AC0FF; */
-    /* background-color: rgba(58,192,225,0.3); */
+    background-color: #080808dd;
     border-radius: 5px;
     text-align: center;
     width: 30vh;
@@ -96,7 +97,7 @@ export const RightGraph = styled.div`
     margin-right: 1vh;
     height: 50vh;
     @media (max-width: 900px) {
-        width:100%;
+        width:100vw;
         margin-left: 0;
         margin-right: 0;
         margin-top: 1vh;
@@ -126,4 +127,19 @@ export const FooterContainer = styled.div`
 `;
 export const AdvBanner = styled.div`
     text-align: center;
+`;
+export const LoaderDiv = styled.div`
+    text-align: center;
+    margin: 50% 50%;
+    color: whitesmoke;
+`;
+export const Loader = styled.div`
+    /* text-align: center; */
+    border: 1px solid #201f1f;
+    border-radius: 50%;
+    border-top: 1px solid #ebf1f5;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
 `;
