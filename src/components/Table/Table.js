@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Body, TableContainer, Td, Th } from "./styles";
+import { Body, TableContainer, Td, Th, LoaderDiv, Loader } from "./styles";
 import flag from "../../data/countryCode";
 const Table = (props) => {
 
-    const [isLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     // const [data,setData] = useState(props.data);
     const [downloads, setDownloads] = useState([]);
     useEffect(() => {
         // console.log("useMemo",props.data)
         if (props.type === "device") {
+            setLoading(true);
             for (let idx = 0; idx < 50; idx++) {
                 // console.log("here");
                 if (props.data[idx]) {
@@ -31,6 +32,7 @@ const Table = (props) => {
                         })
                 }
             }
+            setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.data]);
@@ -98,12 +100,10 @@ const Table = (props) => {
         })
         return rows;
     }
-
-
     const renderTable = () => {
         if (isLoading === true) {
             return (
-                <div>Loading...</div>
+                <LoaderDiv><Loader>Loading</Loader></LoaderDiv>
             )
         }
         else {
