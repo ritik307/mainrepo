@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Body, TableContainer, Td, Th, LoaderDiv, Loader } from "./styles";
-import flag from "../../data/countryCode";
+// import flag from "../../data/countryCode";
 const Table = (props) => {
 
     const [isLoading, setLoading] = useState(false);
@@ -85,13 +85,13 @@ const Table = (props) => {
 
     //? FILLING COUNTRY DATA 
     const fillCountryTable = () => {
-        let index = 0;
+        let index = 1;
         const rows = props.data.slice(0, 20).map((entry) => {
-            const flagSrc = `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
+            // const flagSrc = `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
             return (
-                <tr key={index}>
+                <tr key={++index}>
                     <Td>{index}</Td>
-                    <Td><img key={index} alt={entry[0]} src={flagSrc}></img></Td>
+                    {/* <Td><img key={index} alt={entry[0]} src={flagSrc}></img></Td> */}
                     <Td>{entry[0]}</Td>
 
                     <Td>{entry[1]}</Td>
@@ -113,7 +113,7 @@ const Table = (props) => {
                         <tbody>
                             <tr>
                                 <Th>Serial No.</Th>
-                                <Th>Flag</Th>
+                                {/* <Th>Flag</Th> */}
                                 <Th>Country Name</Th>
                                 <Th>Downloads</Th>
                             </tr>
