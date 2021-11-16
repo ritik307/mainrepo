@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Body, TableContainer, Td, Th, LoaderDiv, Loader } from "./styles";
-// import flag from "../../data/countryCode";
+import { Body, TableContainer, Td, Th } from "./styles";
+import flag from "../../data/countryCode";
 const Table = (props) => {
 
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading] = useState(false);
     // const [data,setData] = useState(props.data);
     const [downloads, setDownloads] = useState([]);
     useEffect(() => {
         // console.log("useMemo",props.data)
         if (props.type === "device") {
-            setLoading(true);
             for (let idx = 0; idx < 50; idx++) {
                 // console.log("here");
                 if (props.data[idx]) {
@@ -32,7 +31,6 @@ const Table = (props) => {
                         })
                 }
             }
-            setLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.data]);
@@ -85,13 +83,13 @@ const Table = (props) => {
 
     //? FILLING COUNTRY DATA 
     const fillCountryTable = () => {
-        let index = 1;
+        let index = 0;
         const rows = props.data.slice(0, 20).map((entry) => {
-            // const flagSrc = `https://www.countryflags.io/${flag[index++].code}/flat/48.png`;
+            const flagSrc = flag[index++].code;
             return (
-                <tr key={++index}>
+                <tr key={index}>
                     <Td>{index}</Td>
-                    {/* <Td><img key={index} alt={entry[0]} src={flagSrc}></img></Td> */}
+                    <Td><img key={index} alt={entry[0]} src={flagSrc} width="50vh" height="50vh"></img></Td>
                     <Td>{entry[0]}</Td>
 
                     <Td>{entry[1]}</Td>
@@ -100,10 +98,12 @@ const Table = (props) => {
         })
         return rows;
     }
+
+
     const renderTable = () => {
         if (isLoading === true) {
             return (
-                <LoaderDiv><Loader>Loading</Loader></LoaderDiv>
+                <div>Loading...</div>
             )
         }
         else {
@@ -113,7 +113,7 @@ const Table = (props) => {
                         <tbody>
                             <tr>
                                 <Th>Serial No.</Th>
-                                {/* <Th>Flag</Th> */}
+                                <Th>Flag</Th>
                                 <Th>Country Name</Th>
                                 <Th>Downloads</Th>
                             </tr>
